@@ -8,33 +8,54 @@ Widget categoryWidget() {
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        Category(
-          imageLocation: 'images/cats/tshirt.png',
-          imageCaption: 'Tshirt',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/tshirt.png',
+            imageCaption: 'Tshirt',
+          ),
         ),
-        Category(
-          imageLocation: 'images/cats/shoe.png',
-          imageCaption: 'Shoes',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/shoe.png',
+            imageCaption: 'Shoes',
+          ),
         ),
-        Category(
-          imageLocation: 'images/cats/jeans.png',
-          imageCaption: 'Pants',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/jeans.png',
+            imageCaption: 'Pants',
+          ),
         ),
-        Category(
-          imageLocation: 'images/cats/informal.png',
-          imageCaption: 'Informal',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/informal.png',
+            imageCaption: 'Informal',
+          ),
         ),
-        Category(
-          imageLocation: 'images/cats/formal.png',
-          imageCaption: 'Formal',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/formal.png',
+            imageCaption: 'Formal',
+          ),
         ),
-        Category(
-          imageLocation: 'images/cats/dress.png',
-          imageCaption: 'Dresses',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/dress.png',
+            imageCaption: 'Dresses',
+          ),
         ),
-        Category(
-          imageLocation: 'images/cats/accessories.png',
-          imageCaption: 'Accessories',
+        InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: 'images/cats/accessories.png',
+            imageCaption: 'Accessories',
+          ),
         ),
       ],
     ),

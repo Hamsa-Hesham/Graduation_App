@@ -50,17 +50,17 @@ class _LoginFormState extends State<LoginForm> {
               buttonName: 'Log in',
             ),
           ),
-          InkWell(
-            onTap: () {},
-            child: Text(
-              'Forgot password?',
-              style: TextStyle(
-                decoration: TextDecoration.underline,
-                color: Colors.white,
-                fontSize: 12,
-              ),
-            ),
-          )
+          // InkWell(
+          //   onTap: () {},
+          //   child: Text(
+          //     'Forgot password?',
+          //     style: TextStyle(
+          //       decoration: TextDecoration.underline,
+          //       color: Colors.white,
+          //       fontSize: 12,
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
