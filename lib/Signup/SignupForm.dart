@@ -1,9 +1,11 @@
 //@dart=2.9
 import 'package:flutter/material.dart';
+import 'package:graduation_app/Api/api.dart';
 import 'package:graduation_app/Buttons/Button.dart';
 import 'package:graduation_app/Fields/passwordField.dart';
 import 'package:graduation_app/Fields/textField.dart';
 import 'package:graduation_app/Homepage/home.dart';
+import 'package:graduation_app/Models/userModel.dart';
 import 'package:graduation_app/Pickers/DatePicker.dart';
 import 'package:graduation_app/Pickers/genderPicker.dart';
 import 'package:graduation_app/Validators/validators.dart';
@@ -117,7 +119,11 @@ class _SignupFormState extends State<SignupForm> {
               onPressed: () {
                 if (_signupFormKey.currentState.validate()) {
                   setState(() {
-                    
+                    UserModel user = UserModel(
+                      name: _userController.text,
+                      password: _passwordController.text,
+                    );
+                    createUser(user);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -135,7 +141,6 @@ class _SignupFormState extends State<SignupForm> {
                     clearDate: true,
                   );
                 }
-                
               },
               buttonName: 'Sign up',
             ),
