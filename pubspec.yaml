@@ -30,11 +30,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_pro: ^1.0.0
   shared_preferences:
-  google_sign_in:
-  flutter_facebook_auth:
-  fluttertoast:
-  masamune_signin_facebook:
-  flutter_signin_button:
   image_picker:
 
 dev_dependencies:

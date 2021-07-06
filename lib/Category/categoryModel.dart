@@ -9,6 +9,10 @@ class Category extends StatelessWidget {
     this.imageLocation,
     this.imageCaption,
   });
+  factory Category.fromJson(Map<String, dynamic> json) => Category(
+        imageLocation: json['imageLocation'],
+        imageCaption: json['imageCaption'],
+      );
   @override
   Widget build(BuildContext context) {
     return Padding(

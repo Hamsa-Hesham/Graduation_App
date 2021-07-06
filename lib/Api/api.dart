@@ -1,6 +1,7 @@
 //@dart=2.9
 
 import 'dart:convert';
+import 'package:graduation_app/Category/categoryModel.dart';
 import 'package:graduation_app/Models/userModel.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,8 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 var token;
 String _baseURL = '159.89.99.188:9000/';
 // ==================== USER LOGIN =========================
-Future<String> login() async {
-  var body = jsonEncode({'username': 'Hamsa', 'password': '1235@'});
+Future<String> login({String username, String password}) async {
+  var body = jsonEncode({'username': username, 'password': password});
   print(body);
   print(jsonDecode(body.toString())['username']);
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -26,7 +27,7 @@ Future<String> login() async {
       token = response.body;
       await prefs.setString('apiToken', token);
       print("The token is:" + prefs.getString('apiToken'));
-      return token;
+      return 'Done!';
       break;
 
     default:
@@ -61,20 +62,48 @@ Future<UserModel> createUser(UserModel user) async {
   }
 }
 
-// ==================== GET USER DATA ===================
-Future<UserModel> getData({int userID}) async {
-  http.Response userData = await http.get(
-    Uri.http(_baseURL, 'users/[/{params}]'),
+// ====================    DELETE USER    ===================
+Future deleteUser(int userID) async {
+  final http.Response response = await http.delete(
+    Uri.http(_baseURL, 'users/:$userID'),
+    headers: {},
+  );
+  if (response.statusCode == 200) {
+    print(response.body);
+  } else {
+    print('An error occured while deleting user');
+    throw Exception('Can\'t delete user');
+  }
+}
+
+// ==================== UPDATE USER DATA  ===================
+Future<UserModel> updateUserData(int userID) async {
+  final http.Response response = await http.put(
+    Uri.http(_baseURL, 'users/:$userID'),
+    headers: {},
+    body: {},
+  );
+  if (response.statusCode == 200) {
+    print(response.body);
+    return UserModel();
+  } else {
+    print('An error occured while updating user');
+    throw Exception('Can\'t update user');
+  }
+}
+
+// ==================== GET CATEGORY DATA ===================
+Future<Category> getCategoryData() async {
+  http.Response categoryData = await http.get(
+    Uri.http(_baseURL, 'category/'),
     headers: {
       'token': token,
     },
   );
-  if (userData.statusCode == 200) {
-    print(UserModel.fromJson(json.decode(userData.body)));
-    return UserModel.fromJson(json.decode(userData.body));
+  if (categoryData.statusCode == 200) {
+    print(Category.fromJson(json.decode(categoryData.body)));
+    return Category.fromJson(json.decode(categoryData.body));
   } else {
     throw Exception('Can not load category Data');
   }
 }
-
-// ====================

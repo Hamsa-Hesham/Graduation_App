@@ -1,6 +1,7 @@
 //@dart=2.9
 
 import 'package:flutter/material.dart';
+import 'package:graduation_app/Api/api.dart';
 import 'package:graduation_app/Buttons/Button.dart';
 import 'package:graduation_app/Fields/passwordField.dart';
 import 'package:graduation_app/Fields/textField.dart';
@@ -40,12 +41,19 @@ class _LoginFormState extends State<LoginForm> {
             ),
             child: Button(
               onPressed: () {
-                Navigator.push(
+                Future<String> y= login(
+                  username: _emailController.text,
+                  password: _passwordController.text,
+                );
+                if(y=='Done!'){
+                   Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => HomePage(),
                   ),
                 );
+                }
+               
               },
               buttonName: 'Log in',
             ),
