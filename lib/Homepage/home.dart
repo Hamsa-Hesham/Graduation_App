@@ -1,11 +1,13 @@
 //@dart=2.9
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:graduation_app/Bars/appBar.dart';
 import 'package:graduation_app/Cart/cart.dart';
 import 'package:graduation_app/Category/categoryWidget.dart';
 import 'package:graduation_app/Drawer/drawer.dart';
 import 'package:graduation_app/Product/productWidget.dart';
 import 'package:graduation_app/ImageCarousel/imageCarousel.dart';
+import 'package:graduation_app/Redux/AppState.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(57),
         child: appBar(
-          <Widget>[
+          actions: <Widget>[
             IconButton(
               onPressed: () {
                 print("Search");
@@ -48,27 +50,37 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       drawer: drawer(context: context),
-      body: Column(
-        children: [
-          imageCarousel(),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              child: Text('Categories'),
-            ),
-          ),
-          categoryWidget(),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              child: Text('Recent products'),
-            ),
-          ),
-          ProductWidget(),
-        ],
-      ),
+      body: StoreConnector<AppState, AppState>(
+          converter: (store) => store.state,
+          // ignore: missing_return
+          builder: (context, state) {
+            Column(
+              children: <Widget>[
+                imageCarousel(),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Categories',
+                        style: TextStyle(
+                          fontSize:
+                              Theme.of(context).textTheme.headline5.fontSize,
+                        ),
+                      )),
+                ),
+                categoryWidget(),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Recent products'),
+                  ),
+                ),
+                ProductWidget(),
+              ],
+            );
+          }),
     );
   }
 }

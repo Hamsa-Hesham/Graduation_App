@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 var token;
-String _baseURL = '159.89.99.188:9000/';
+String _baseURL = "159.89.99.188:9000";
 // ==================== USER LOGIN =========================
 Future<String> login({String username, String password}) async {
   var body = jsonEncode({'username': username, 'password': password});
@@ -16,12 +16,13 @@ Future<String> login({String username, String password}) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   final response = await http.post(
-    Uri.http(_baseURL, 'users/Login'),
+    Uri.http(_baseURL, "/users/login"),
     headers: <String, String>{
       'Content-Type': 'application/json;charset=UTF-8',
     },
     body: body,
   );
+  print(response);
   switch (response.statusCode) {
     case 200:
       token = response.body;
@@ -29,7 +30,6 @@ Future<String> login({String username, String password}) async {
       print("The token is:" + prefs.getString('apiToken'));
       return 'Done!';
       break;
-
     default:
       return ("Error :" + response.body);
       break;
@@ -40,7 +40,7 @@ Future<String> login({String username, String password}) async {
 Future<UserModel> createUser(UserModel user) async {
   final http.Response response = await http
       .post(
-    Uri.http(_baseURL, 'users/register'),
+    Uri.http(_baseURL, '/users/register'),
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
     },
@@ -65,7 +65,7 @@ Future<UserModel> createUser(UserModel user) async {
 // ====================    DELETE USER    ===================
 Future deleteUser(int userID) async {
   final http.Response response = await http.delete(
-    Uri.http(_baseURL, 'users/:$userID'),
+    Uri.http(_baseURL, '/users/:$userID'),
     headers: {},
   );
   if (response.statusCode == 200) {
@@ -79,7 +79,7 @@ Future deleteUser(int userID) async {
 // ==================== UPDATE USER DATA  ===================
 Future<UserModel> updateUserData(int userID) async {
   final http.Response response = await http.put(
-    Uri.http(_baseURL, 'users/:$userID'),
+    Uri.http(_baseURL, '/users/:$userID'),
     headers: {},
     body: {},
   );
@@ -95,9 +95,9 @@ Future<UserModel> updateUserData(int userID) async {
 // ==================== GET CATEGORY DATA ===================
 Future<Category> getCategoryData() async {
   http.Response categoryData = await http.get(
-    Uri.http(_baseURL, 'category/'),
+    Uri.http(_baseURL, '/category/'),
     headers: {
-      'token': token,
+      'auth': "Token token=$token",
     },
   );
   if (categoryData.statusCode == 200) {

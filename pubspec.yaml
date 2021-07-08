@@ -31,6 +31,10 @@ dependencies:
   carousel_pro: ^1.0.0
   shared_preferences:
   image_picker:
+  flutter_cart:
+  redux:
+  redux_thunk:
+  flutter_redux:
 
 dev_dependencies:
   flutter_test:

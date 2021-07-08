@@ -26,7 +26,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(57),
         child: appBar(
-          [
+          actions: [
             Padding(
               padding: const EdgeInsets.only(
                 right: 8.0,

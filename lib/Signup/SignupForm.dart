@@ -123,6 +123,7 @@ class _SignupFormState extends State<SignupForm> {
                       name: _userController.text,
                       password: _passwordController.text,
                     );
+
                     createUser(user);
                     Navigator.push(
                       context,
@@ -140,6 +141,7 @@ class _SignupFormState extends State<SignupForm> {
                   DatePICKER(
                     clearDate: true,
                   );
+                  GenderPicker();
                 }
               },
               buttonName: 'Sign up',

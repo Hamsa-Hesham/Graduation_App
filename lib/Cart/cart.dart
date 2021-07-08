@@ -16,7 +16,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(
-        [
+        actions:[
           Padding(
             padding: const EdgeInsets.only(
               right: 8.0,

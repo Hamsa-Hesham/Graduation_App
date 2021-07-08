@@ -42,10 +42,11 @@ class _LoginFormState extends State<LoginForm> {
             child: Button(
               onPressed: () {
                 if (_loginFormKey.currentState.validate()) {
-                  Future<String> y = login(
+                  var y = login(
                     username: _emailController.text,
                     password: _passwordController.text,
                   );
+                  print(y);
                   if (y == 'Done!') {
                     Navigator.push(
                       context,
