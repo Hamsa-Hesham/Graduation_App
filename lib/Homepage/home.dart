@@ -24,7 +24,10 @@ class _HomePageState extends State<HomePage> {
           actions: <Widget>[
             IconButton(
               onPressed: () {
-                print("Search");
+                showSearch(
+                  context: context,
+                  delegate: null,
+                );
               },
               icon: Icon(
                 Icons.search,
@@ -50,37 +53,31 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       drawer: drawer(context: context),
-      body: StoreConnector<AppState, AppState>(
-          converter: (store) => store.state,
-          // ignore: missing_return
-          builder: (context, state) {
-            Column(
-              children: <Widget>[
-                imageCarousel(),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Categories',
-                        style: TextStyle(
-                          fontSize:
-                              Theme.of(context).textTheme.headline5.fontSize,
-                        ),
-                      )),
-                ),
-                categoryWidget(),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text('Recent products'),
+      body: Column(
+        children: <Widget>[
+          imageCarousel(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Categories',
+                  style: TextStyle(
+                    fontSize: Theme.of(context).textTheme.headline5.fontSize,
                   ),
-                ),
-                ProductWidget(),
-              ],
-            );
-          }),
+                )),
+          ),
+          categoryWidget(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: Text('Recent products'),
+            ),
+          ),
+          ProductWidget(),
+        ],
+      ),
     );
   }
 }

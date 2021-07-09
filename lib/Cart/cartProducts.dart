@@ -50,13 +50,13 @@ class _CartProductsState extends State<CartProducts> {
   }
 }
 
-class CartSingleProduct extends StatelessWidget {
+class CartSingleProduct extends StatefulWidget {
   final cartProductName;
   final cartProductPicture;
   final cartProductPrice;
   final cartProductSize;
   final cartProductColor;
-  final cartProductQuantity;
+  var cartProductQuantity;
   CartSingleProduct({
     this.cartProductName,
     this.cartProductPicture,
@@ -67,16 +67,21 @@ class CartSingleProduct extends StatelessWidget {
   });
 
   @override
+  State<CartSingleProduct> createState() => _CartSingleProductState();
+}
+
+class _CartSingleProductState extends State<CartSingleProduct> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         //contentPadding: const EdgeInsets.all(12.0),
         leading: Image.asset(
-          cartProductPicture,
+          widget.cartProductPicture,
           width: 80.0,
           height: 100.0,
         ),
-        title: Text(cartProductName),
+        title: Text(widget.cartProductName),
         subtitle: Column(
           children: [
             Row(
@@ -88,7 +93,7 @@ class CartSingleProduct extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
-                    cartProductSize,
+                    widget.cartProductSize,
                     style: TextStyle(
                       color: Colors.red,
                     ),
@@ -101,7 +106,7 @@ class CartSingleProduct extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
-                    cartProductColor,
+                    widget.cartProductColor,
                     style: TextStyle(
                       color: Colors.red,
                     ),
@@ -112,7 +117,7 @@ class CartSingleProduct extends StatelessWidget {
             Container(
               alignment: Alignment.topLeft,
               child: Text(
-                '\$$cartProductPrice',
+                '\$${widget.cartProductPrice}',
                 style: TextStyle(
                   fontSize: 17.0,
                   fontWeight: FontWeight.bold,
@@ -124,18 +129,27 @@ class CartSingleProduct extends StatelessWidget {
         ),
 //      ==================== A PROBLEM HERE =====================
 //      REMOVE SingleChildScrollView
-        trailing: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
+        trailing: Container(
+          width: 10,
+          child: Row(
+            verticalDirection: VerticalDirection.down,
             children: <Widget>[
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_drop_up),
+                onPressed: () {
+                  setState(() {
+                    widget.cartProductQuantity++;
+                  });
+                },
+                icon: Icon(Icons.add),
               ),
-              Text("$cartProductQuantity"),
+              Text("${widget.cartProductQuantity}"),
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_drop_down),
+                onPressed: () {
+                  setState(() {
+                    widget.cartProductQuantity--;
+                  });
+                },
+                icon: Icon(Icons.remove),
               ),
             ],
           ),

@@ -1,6 +1,7 @@
 //@dart=2.9
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Bars/bottomNavigationBar.dart';
+import 'package:graduation_app/Buttons/googleButton.dart';
 import 'package:graduation_app/Login/LoginScreen.dart';
 import 'package:graduation_app/Signup/SignupForm.dart';
 
@@ -29,7 +30,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'AppName',
+                    'Mercato',
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Billabong',
@@ -40,6 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     height: 50,
                   ),
                   SignupForm(),
+                  GoogleSigninButton(),
                 ],
               ),
             ),

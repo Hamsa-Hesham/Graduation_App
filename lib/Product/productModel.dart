@@ -56,38 +56,6 @@ class Product extends StatelessWidget {
                   ),
                 ],
               ),
-              //Another UI
-              /*footer: Container(
-                //color: Colors.white70,
-                color: Colors.transparent,
-                child: ListTile(
-                  leading: Text(
-                    productName,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  title: Row(
-                    children: [
-                      Text(
-                        '\$$productPrice  ',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                      Text(
-                        '\$$productOldPrice',
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontWeight: FontWeight.w800,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),*/
             ),
           ),
         ),
@@ -110,36 +78,72 @@ class _ProductsState extends State<Products> {
       'productPicture': 'images/products/blazer1.jpeg',
       'productOldPrice': 120,
       'productPrice': 85,
+      'itemQuantities': [
+        {'color': 'red', 'size': 'L', 'quantity': 14},
+        {'color': '', 'size': 'L', 'quantity': 14},
+        {'color': 'blue', 'size': 'M', 'quantity': 14},
+        {'color': 'green', 'size': 'S', 'quantity': 14},
+      ]
     },
     {
       'productName': 'Red dress',
       'productPicture': 'images/products/dress1.jpeg',
       'productOldPrice': 150,
       'productPrice': 100,
+      'itemQuantities': [
+        {'color': 'red', 'size': 'L', 'quantity': 14},
+        {'color': '', 'size': 'L', 'quantity': 14},
+        {'color': 'blue', 'size': 'M', 'quantity': 14},
+        {'color': 'green', 'size': 'S', 'quantity': 14},
+      ]
     },
     {
       'productName': 'Hills',
       'productPicture': 'images/products/hills1.jpeg',
       'productOldPrice': 150,
       'productPrice': 100,
+      'itemQuantities': [
+        {'color': 'red', 'size': 'L', 'quantity': 14},
+        {'color': '', 'size': 'L', 'quantity': 14},
+        {'color': 'blue', 'size': 'M', 'quantity': 14},
+        {'color': 'green', 'size': 'S', 'quantity': 14},
+      ]
     },
     {
       'productName': 'Pants',
       'productPicture': 'images/products/pants1.jpg',
       'productOldPrice': 160,
       'productPrice': 110,
+      'itemQuantities': [
+        {'color': 'red', 'size': 'L', 'quantity': 14},
+        {'color': '', 'size': 'L', 'quantity': 14},
+        {'color': 'blue', 'size': 'M', 'quantity': 14},
+        {'color': 'green', 'size': 'S', 'quantity': 14},
+      ]
     },
     {
       'productName': 'Shoes',
       'productPicture': 'images/products/shoe1.jpg',
       'productOldPrice': 170,
       'productPrice': 115,
+      'itemQuantities': [
+        {'color': 'red', 'size': 'L', 'quantity': 14},
+        {'color': '', 'size': 'L', 'quantity': 14},
+        {'color': 'blue', 'size': 'M', 'quantity': 14},
+        {'color': 'green', 'size': 'S', 'quantity': 14},
+      ]
     },
     {
       'productName': 'Skirt',
       'productPicture': 'images/products/skt1.jpeg',
       'productOldPrice': 165,
       'productPrice': 145,
+      'itemQuantities': [
+        {'color': 'red', 'size': 'L', 'quantity': 14},
+        {'color': '', 'size': 'L', 'quantity': 14},
+        {'color': 'blue', 'size': 'M', 'quantity': 14},
+        {'color': 'green', 'size': 'S', 'quantity': 14},
+      ]
     },
   ];
   @override

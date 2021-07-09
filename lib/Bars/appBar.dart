@@ -16,7 +16,7 @@ Widget appBar({List<Widget> actions, BuildContext context}) {
           ),
         );
       },
-      child: Text('FashApp'),
+      child: Text('Mercato'),
     ),
     centerTitle: true,
     backgroundColor: Colors.redAccent,
