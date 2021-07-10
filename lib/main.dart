@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       store: store,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: Brands(),
         routes: {
           '/HomePage': (context) => HomePage(),
           '/signUp': (context) => SignupScreen(),

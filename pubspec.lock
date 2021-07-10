@@ -362,6 +362,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  imagebutton:
+    dependency: "direct main"
+    description:
+      name: imagebutton
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.6"
   integration_test:
     dependency: "direct dev"
     description: flutter
