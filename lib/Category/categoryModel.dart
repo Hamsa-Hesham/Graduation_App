@@ -1,13 +1,11 @@
-//@dart=2.9
-
 import 'package:flutter/material.dart';
 
 class Category extends StatelessWidget {
   final String imageLocation;
   final String imageCaption;
   Category({
-    this.imageLocation,
-    this.imageCaption,
+    required this.imageLocation,
+    required this.imageCaption,
   });
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         imageLocation: json['imageLocation'],

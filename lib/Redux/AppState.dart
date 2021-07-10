@@ -1,15 +1,13 @@
-//@dart=2.9
-
 import 'package:flutter/material.dart';
 
 class AppState {
-  double sliderFontSize;
-  bool bold;
-  bool italic;
+  double? sliderFontSize;
+  bool bold = false;
+  bool italic = false;
   AppState({
     @required this.sliderFontSize,
-    this.bold = false,
-    this.italic = false,
+    required this.bold,
+    required this.italic,
   });
 
   AppState.fromAppState(AppState another) {
@@ -18,5 +16,5 @@ class AppState {
     italic = another.italic;
   }
 
-  double get viewFontSize => sliderFontSize * 30;
+  double get viewFontSize => sliderFontSize! * 30;
 }

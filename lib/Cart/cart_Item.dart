@@ -1,16 +1,14 @@
-//@dart=2.9
-
 import 'dart:convert';
 
 class CartItem {
   CartItem({
     this.cartProductID,
-    this.cartProductName,
-    this.cartProductPicture,
+    required this.cartProductName,
+    required this.cartProductPicture,
     this.cartProductPrice,
     this.cartProductSize,
     this.cartProductColor,
-    this.cartProductQuantity,
+    required this.cartProductQuantity,
     this.itemCartIndex = -1,
     this.uniqueCheck,
     this.subTotal,

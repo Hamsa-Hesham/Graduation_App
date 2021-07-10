@@ -1,4 +1,3 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 
 class GenderPicker extends StatefulWidget {
@@ -7,7 +6,7 @@ class GenderPicker extends StatefulWidget {
 }
 
 class _GenderPickerState extends State<GenderPicker> {
-  String dropdownValue = 'Male';
+  String? dropdownValue = 'Male';
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +20,7 @@ class _GenderPickerState extends State<GenderPicker> {
           height: 1.5,
           color: Colors.grey[700],
         ),
-        onChanged: (String newValue) {
+        onChanged: (String? newValue) {
           setState(() {
             dropdownValue = newValue;
           });

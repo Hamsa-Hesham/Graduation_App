@@ -1,4 +1,3 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:graduation_app/Bars/appBar.dart';
@@ -26,7 +25,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 showSearch(
                   context: context,
-                  delegate: null,
+                 delegate: SearchDelegate(),
                 );
               },
               icon: Icon(
@@ -63,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'Categories',
                   style: TextStyle(
-                    fontSize: Theme.of(context).textTheme.headline5.fontSize,
+                    fontSize: Theme.of(context).textTheme.headline5!.fontSize,
                   ),
                 )),
           ),

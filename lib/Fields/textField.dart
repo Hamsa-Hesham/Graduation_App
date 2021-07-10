@@ -1,20 +1,19 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class TextFIELD extends StatefulWidget {
-  TextEditingController controller;
-  String name;
-  String Function(String) validationFunction;
+  TextEditingController controller = TextEditingController();
+  String name = '';
+  String Function(String?)? validationFunction;
 
   TextFIELD(
     TextEditingController controller,
     String name, {
-    String Function(String) validationFunction,
+    required String Function(String) validationFunction,
   }) {
     this.controller = controller;
     this.name = name;
-    this.validationFunction = validationFunction;
+    this.validationFunction = validationFunction as String Function(String? p1);
   }
   @override
   _TextFIELDState createState() => _TextFIELDState();
@@ -37,7 +36,7 @@ class _TextFIELDState extends State<TextFIELD> {
         ),
         cursorColor: Colors.white,
         decoration: InputDecoration(
-          fillColor: Colors.grey[700].withOpacity(0.8),
+          fillColor: Colors.grey[700]!.withOpacity(0.8),
           hintText: widget.name,
           filled: true,
           hintStyle: TextStyle(

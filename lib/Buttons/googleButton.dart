@@ -1,4 +1,3 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -14,7 +13,7 @@ class GoogleSigninButton extends StatefulWidget {
 }
 
 class _GoogleSigninButtonState extends State<GoogleSigninButton> {
-  GoogleSignInAccount _currentUser;
+  GoogleSignInAccount? _currentUser;
   String _contactText = '';
   GoogleSignIn _googleSignIn = GoogleSignIn(
     // Optional clientId
@@ -27,12 +26,12 @@ class _GoogleSigninButtonState extends State<GoogleSigninButton> {
   @override
   void initState() {
     super.initState();
-    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
+    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
       setState(() {
         _currentUser = account;
       });
       if (_currentUser != null) {
-        _handleGetContact(_currentUser);
+        _handleGetContact(_currentUser!);
       }
     });
     _googleSignIn.signInSilently();
@@ -56,7 +55,7 @@ class _GoogleSigninButtonState extends State<GoogleSigninButton> {
       return;
     }
     final Map<String, dynamic> data = json.decode(response.body);
-    final String namedContact = _pickFirstNamedContact(data);
+    final String? namedContact = _pickFirstNamedContact(data);
     setState(() {
       if (namedContact != null) {
         _contactText = "I see you know $namedContact!";
@@ -66,14 +65,14 @@ class _GoogleSigninButtonState extends State<GoogleSigninButton> {
     });
   }
 
-  String _pickFirstNamedContact(Map<String, dynamic> data) {
-    final List<dynamic> connections = data['connections'];
-    final Map<String, dynamic> contact = connections?.firstWhere(
+  String? _pickFirstNamedContact(Map<String, dynamic> data) {
+    final List<dynamic>? connections = data['connections'];
+    final Map<String, dynamic>? contact = connections?.firstWhere(
       (dynamic contact) => contact['names'] != null,
       orElse: () => null,
     );
     if (contact != null) {
-      final Map<String, dynamic> name = contact['names'].firstWhere(
+      final Map<String, dynamic>? name = contact['names'].firstWhere(
         (dynamic name) => name['displayName'] != null,
         orElse: () => null,
       );
@@ -94,7 +93,7 @@ class _GoogleSigninButtonState extends State<GoogleSigninButton> {
 
   Future<void> _handleSignOut() => _googleSignIn.disconnect();
   Widget _buildBody() {
-    GoogleSignInAccount user = _currentUser;
+    GoogleSignInAccount? user = _currentUser;
     if (user != null) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

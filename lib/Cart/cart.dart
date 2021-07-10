@@ -1,4 +1,4 @@
-//@dart=2.9
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Bars/appBar.dart';
@@ -15,18 +15,22 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(
-        actions:[
-          Padding(
-            padding: const EdgeInsets.only(
-              right: 8.0,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(40),
+        child: appBar(
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 8.0,
+              ),
+              child: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
             ),
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-          ),
-        ],
+          ],
+          context: context,
+        ),
       ),
       body: CartProducts(),
       bottomNavigationBar: BottomNavigationBarCart(),

@@ -1,4 +1,3 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Api/api.dart';
 import 'package:graduation_app/Buttons/Button.dart';
@@ -33,7 +32,7 @@ class _SignupFormState extends State<SignupForm> {
             'Username',
             validationFunction: (v) {
               if (v.isValidUsername) {
-                return null;
+                return '';
               } else {
                 return 'Please enter a valid username.';
               }
@@ -44,7 +43,7 @@ class _SignupFormState extends State<SignupForm> {
             'Email Address',
             validationFunction: (v) {
               if (v.isValidEmail) {
-                return null;
+                return '';
               } else {
                 return 'Please enter a valid email.';
               }
@@ -55,7 +54,7 @@ class _SignupFormState extends State<SignupForm> {
             'Password',
             validationFunction: (v) {
               if (v.isValidPassword) {
-                return null;
+                return '';
               } else {
                 return 'Please enter a valid password.';
               }
@@ -66,7 +65,7 @@ class _SignupFormState extends State<SignupForm> {
             'Re-enter Password',
             validationFunction: (v) {
               if (v == _passwordController.text) {
-                return null;
+                return '';
               } else {
                 return 'Password doesn\'t match!';
               }
@@ -87,7 +86,9 @@ class _SignupFormState extends State<SignupForm> {
                     fontSize: 18,
                   ),
                 ),
-                DatePICKER(),
+                DatePICKER(
+                  clearDate: false,
+                ),
               ],
             ),
           ),
@@ -117,11 +118,15 @@ class _SignupFormState extends State<SignupForm> {
             ),
             child: Button(
               onPressed: () {
-                if (_signupFormKey.currentState.validate()) {
+                if (_signupFormKey.currentState!.validate()) {
                   setState(() {
                     UserModel user = UserModel(
                       name: _userController.text,
                       password: _passwordController.text,
+                      createdAt: DateTime.now(),
+                      email: '',
+                      id: '',
+                      image: '',
                     );
 
                     createUser(user);

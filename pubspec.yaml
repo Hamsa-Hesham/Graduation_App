@@ -38,6 +38,7 @@ dependencies:
   flutter_redux:
   flutter_signin_button:
   google_sign_in:
+  build_runner:
 
 dev_dependencies:
   flutter_test:

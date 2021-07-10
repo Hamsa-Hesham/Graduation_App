@@ -1,12 +1,10 @@
-//@dart=2.9
-
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class DatePICKER extends StatefulWidget {
-  static DateTime date;
-  bool clearDate;
-  DatePICKER({bool clearDate}) {
+  static DateTime? date;
+  bool? clearDate;
+  DatePICKER({required bool clearDate}) {
     this.clearDate = clearDate;
   }
   @override
@@ -17,8 +15,8 @@ class _DatePICKERState extends State<DatePICKER> {
   DateTime selectedDate = DateTime.now();
   bool dated = false;
 
-  Future<void> _selectDate(BuildContext context, {bool clearDate}) async {
-    final DateTime pickedDate = await showDatePicker(
+  Future<void> _selectDate(BuildContext context, {bool? clearDate}) async {
+    final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: selectedDate,
       firstDate: DateTime(1950),
@@ -34,7 +32,6 @@ class _DatePICKERState extends State<DatePICKER> {
     if (clearDate == true) {
       setState(() {
         dated = false;
-        
       });
     }
   }
@@ -54,7 +51,7 @@ class _DatePICKERState extends State<DatePICKER> {
           fontSize: 17,
         ),
       ),
-      color: Colors.amber[100].withOpacity(0.8),
+      color: Colors.amber[100]!.withOpacity(0.8),
     );
   }
 }

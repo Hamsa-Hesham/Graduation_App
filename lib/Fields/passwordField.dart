@@ -1,20 +1,18 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class PasswordFIELD extends StatefulWidget {
-  TextEditingController controller;
-  String text;
-  String Function(String) validationFunction;
+  TextEditingController controller = TextEditingController();
+  String text = '';
+   String Function(String?)? validationFunction ;
 
   PasswordFIELD(
     TextEditingController controller,
     String text, {
-    String Function(String) validationFunction,
+    required String Function(String) validationFunction,
   }) {
     this.controller = controller;
     this.text = text;
-    this.validationFunction = validationFunction;
+    this.validationFunction = validationFunction as String Function(String? p1);
   }
 
   @override
@@ -39,7 +37,7 @@ class _PasswordFIELDState extends State<PasswordFIELD> {
         ),
         cursorColor: Colors.white,
         decoration: InputDecoration(
-          fillColor: Colors.grey[700].withOpacity(0.8),
+          fillColor: Colors.grey[700]!.withOpacity(0.8),
           filled: true,
           hintText: widget.text,
           hintStyle: TextStyle(

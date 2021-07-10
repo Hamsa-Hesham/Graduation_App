@@ -1,4 +1,3 @@
-//@dart=2.9
 import 'dart:convert';
 
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
@@ -14,12 +13,12 @@ class UserModel {
   String email;
 
   UserModel({
-    this.name,
-    this.password,
-    this.id = '',
-    this.createdAt,
-    this.image,
-    this.email,
+    required this.name,
+    required this.password,
+    required this.id,
+    required this.createdAt,
+    required this.image,
+    required this.email,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(

@@ -1,5 +1,3 @@
-//@dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Api/api.dart';
 import 'package:graduation_app/Buttons/Button.dart';
@@ -27,11 +25,17 @@ class _LoginFormState extends State<LoginForm> {
           TextFIELD(
             _emailController,
             'Email address',
+            validationFunction: (String) {
+              return '';
+            },
           ),
           // ============== PASSWORD FIELD ===================
           PasswordFIELD(
             _passwordController,
             'Password',
+            validationFunction: (String) {
+              return '';
+            },
           ),
           // ============== LOGIN BUTTON ===================
           Padding(
@@ -41,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             child: Button(
               onPressed: () {
-                if (_loginFormKey.currentState.validate()) {
+                if (_loginFormKey.currentState!.validate()) {
                   var y = login(
                     username: _emailController.text,
                     password: _passwordController.text,
@@ -60,7 +64,6 @@ class _LoginFormState extends State<LoginForm> {
               buttonName: 'Log in',
             ),
           ),
-          
         ],
       ),
     );

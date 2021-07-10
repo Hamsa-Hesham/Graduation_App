@@ -1,5 +1,3 @@
-//@dart=2.9
-
 import 'dart:convert';
 import 'package:graduation_app/Category/categoryModel.dart';
 import 'package:graduation_app/Models/userModel.dart';
@@ -9,7 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 var token;
 String _baseURL = "159.89.99.188:9000";
 // ==================== USER LOGIN =========================
-Future<String> login({String username, String password}) async {
+Future<String> login(
+    {required String username, required String password}) async {
   var body = jsonEncode({'username': username, 'password': password});
   print(body);
   print(jsonDecode(body.toString())['username']);
@@ -27,12 +26,12 @@ Future<String> login({String username, String password}) async {
     case 200:
       token = response.body;
       await prefs.setString('apiToken', token);
-      print("The token is:" + prefs.getString('apiToken'));
+      print("The token is:");
+      print(prefs.getString('apiToken'));
       return 'Done!';
-      break;
+
     default:
       return ("Error :" + response.body);
-      break;
   }
 }
 

@@ -1,11 +1,10 @@
-//@dart=2.9
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Button extends StatefulWidget {
-  void Function() onPressed;
-  String buttonName;
-  Button({Function() onPressed, String buttonName}) {
+  void Function() onPressed = () {};
+  String buttonName = "";
+  Button({required Function() onPressed, required String buttonName}) {
     this.onPressed = onPressed;
     this.buttonName = buttonName;
   }
@@ -18,7 +17,6 @@ class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      
       onPressed: widget.onPressed,
       minWidth: 170,
       shape: RoundedRectangleBorder(
@@ -28,7 +26,7 @@ class _ButtonState extends State<Button> {
         ),
       ),
       color: Colors.blue.withOpacity(0.8),
-      disabledColor: Colors.blue[800].withOpacity(0.8),
+      disabledColor: Colors.blue[800]!.withOpacity(0.8),
       disabledTextColor: Colors.white60,
       padding: EdgeInsets.all(10),
       child: submitted

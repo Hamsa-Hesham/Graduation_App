@@ -1,5 +1,3 @@
-//@dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'inheritedBloc.dart';
@@ -61,7 +59,7 @@ class CustomSearchDelegate extends SearchDelegate {
                   Center(child: CircularProgressIndicator()),
                 ],
               );
-            } else if (snapshot.data.length == 0) {
+            } else if (snapshot.data!.length == 0) {
               return Column(
                 children: <Widget>[
                   Text(
@@ -72,7 +70,7 @@ class CustomSearchDelegate extends SearchDelegate {
             } else {
               var results = snapshot.data;
               return ListView.builder(
-                itemCount: results.length,
+                itemCount: results!.length,
                 itemBuilder: (context, index) {
                   var result = results[index];
                   return ListTile(
