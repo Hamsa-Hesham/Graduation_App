@@ -84,7 +84,14 @@ Future<UserModel> updateUserData(int userID) async {
   );
   if (response.statusCode == 200) {
     print(response.body);
-    return UserModel();
+    return UserModel(
+      createdAt: DateTime.now(),
+      email: '',
+      id: '',
+      image: '',
+      name: '',
+      password: '',
+    );
   } else {
     print('An error occured while updating user');
     throw Exception('Can\'t update user');

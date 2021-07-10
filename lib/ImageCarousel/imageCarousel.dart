@@ -1,4 +1,5 @@
-import 'package:carousel_pro/carousel_pro.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:carousel_pro/carousel_pro.dart' show Carousel;
 import 'package:flutter/material.dart';
 
 Widget imageCarousel() {

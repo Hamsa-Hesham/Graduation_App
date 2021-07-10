@@ -25,7 +25,7 @@ class _LoginFormState extends State<LoginForm> {
           TextFIELD(
             _emailController,
             'Email address',
-            validationFunction: (String) {
+            validationFunction: (string) {
               return '';
             },
           ),
@@ -33,7 +33,7 @@ class _LoginFormState extends State<LoginForm> {
           PasswordFIELD(
             _passwordController,
             'Password',
-            validationFunction: (String) {
+            validationFunction: (string) {
               return '';
             },
           ),
@@ -51,6 +51,7 @@ class _LoginFormState extends State<LoginForm> {
                     password: _passwordController.text,
                   );
                   print(y);
+                  // ignore: unrelated_type_equality_checks
                   if (y == 'Done!') {
                     Navigator.push(
                       context,

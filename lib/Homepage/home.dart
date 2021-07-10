@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:graduation_app/Bars/appBar.dart';
 import 'package:graduation_app/Cart/cart.dart';
 import 'package:graduation_app/Category/categoryWidget.dart';
 import 'package:graduation_app/Drawer/drawer.dart';
 import 'package:graduation_app/Product/productWidget.dart';
 import 'package:graduation_app/ImageCarousel/imageCarousel.dart';
-import 'package:graduation_app/Redux/AppState.dart';
 
 class HomePage extends StatefulWidget {
   @override

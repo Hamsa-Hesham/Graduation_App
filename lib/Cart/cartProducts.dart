@@ -50,6 +50,7 @@ class _CartProductsState extends State<CartProducts> {
   }
 }
 
+// ignore: must_be_immutable
 class CartSingleProduct extends StatefulWidget {
   final cartProductName;
   final cartProductPicture;

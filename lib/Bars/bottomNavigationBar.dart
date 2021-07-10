@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BottomNavigationBAR extends StatefulWidget {
   String text1 = "", text2 = "";
   Widget screen = Container();
