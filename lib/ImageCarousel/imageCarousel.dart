@@ -1,18 +1,18 @@
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:carousel_pro/carousel_pro.dart' show Carousel;
+import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:flutter/material.dart';
 
 Widget imageCarousel() {
   return Container(
     height: 200.0,
     child: Carousel(
-      boxFit: BoxFit.cover,
+      radius: Radius.circular(50.0),
+      boxFit: BoxFit.fill,
       images: [
-        AssetImage('images/c1.jpg'),
-        AssetImage('images/m1.jpeg'),
-        AssetImage('images/w3.jpeg'),
-        AssetImage('images/w4.jpeg'),
-        AssetImage('images/m2.jpg'),
+        Image(image: AssetImage('images/c1.jpg')),
+        Image(image: AssetImage('images/m1.jpeg')),
+        Image(image: AssetImage('images/w3.jpeg')),
+        Image(image: AssetImage('images/w4.jpeg')),
+        Image(image: AssetImage('images/m2.jpg')),
       ],
       autoplay: true,
       animationCurve: Curves.fastOutSlowIn,
