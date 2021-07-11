@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Bars/appBar.dart';
 import 'package:graduation_app/Cart/cart.dart';
+import 'package:graduation_app/Category/categoryModel.dart';
 import 'package:graduation_app/Category/categoryWidget.dart';
 import 'package:graduation_app/Drawer/drawer.dart';
 import 'package:graduation_app/Product/productWidget.dart';
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )),
           ),
-          categoryWidget(),
+          Categories(),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Container(

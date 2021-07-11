@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_app/Category/categoryModel.dart';
+
+import 'categoryModel.dart';
+
+/*import 'package:graduation_app/Category/categoryModel.dart';
 
 Widget categoryWidget() {
   return Container(
@@ -11,52 +14,66 @@ Widget categoryWidget() {
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/tshirt.png',
-            imageCaption: 'Tshirt',
+            cateName: 'Tshirt',
           ),
         ),
         InkWell(
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/shoe.png',
-            imageCaption: 'Shoes',
+            cateName: 'Shoes',
           ),
         ),
         InkWell(
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/jeans.png',
-            imageCaption: 'Pants',
+            cateName: 'Pants',
           ),
         ),
         InkWell(
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/informal.png',
-            imageCaption: 'Informal',
+            cateName: 'Informal',
           ),
         ),
         InkWell(
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/formal.png',
-            imageCaption: 'Formal',
+            cateName: 'Formal',
           ),
         ),
         InkWell(
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/dress.png',
-            imageCaption: 'Dresses',
+            cateName: 'Dresses',
           ),
         ),
         InkWell(
           onTap: () {},
           child: Category(
             imageLocation: 'images/cats/accessories.png',
-            imageCaption: 'Accessories',
+            cateName: 'Accessories',
           ),
         ),
       ],
     ),
   );
+}
+*/
+class CategoryWidget extends StatefulWidget {
+  const CategoryWidget({Key? key}) : super(key: key);
+
+  @override
+  _CategoryWidgetState createState() => _CategoryWidgetState();
+}
+
+class _CategoryWidgetState extends State<CategoryWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Categories();
+  }
 }

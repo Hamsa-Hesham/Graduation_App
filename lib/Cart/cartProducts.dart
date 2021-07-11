@@ -132,27 +132,29 @@ class _CartSingleProductState extends State<CartSingleProduct> {
 //      REMOVE SingleChildScrollView
         trailing: Container(
           width: 10,
-          child: Row(
-            verticalDirection: VerticalDirection.down,
-            children: <Widget>[
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    widget.cartProductQuantity++;
-                  });
-                },
-                icon: Icon(Icons.add),
-              ),
-              Text("${widget.cartProductQuantity}"),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    widget.cartProductQuantity--;
-                  });
-                },
-                icon: Icon(Icons.remove),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Row(
+              verticalDirection: VerticalDirection.down,
+              children: <Widget>[
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      widget.cartProductQuantity++;
+                    });
+                  },
+                  icon: Icon(Icons.add),
+                ),
+                Text("${widget.cartProductQuantity}"),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      widget.cartProductQuantity--;
+                    });
+                  },
+                  icon: Icon(Icons.remove),
+                ),
+              ],
+            ),
           ),
         ),
       ),

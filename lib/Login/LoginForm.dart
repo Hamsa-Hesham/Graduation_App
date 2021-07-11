@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Api/api.dart';
+import 'package:graduation_app/Brands/brands.dart';
 import 'package:graduation_app/Buttons/Button.dart';
 import 'package:graduation_app/Fields/passwordField.dart';
 import 'package:graduation_app/Fields/textField.dart';
-import 'package:graduation_app/Homepage/home.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -56,7 +56,7 @@ class _LoginFormState extends State<LoginForm> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => Brands(),
                       ),
                     );
                   }

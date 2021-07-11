@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class Category extends StatelessWidget {
   final String imageLocation;
-  final String imageCaption;
+  final String cateName;
   Category({
     required this.imageLocation,
-    required this.imageCaption,
+    required this.cateName,
   });
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         imageLocation: json['imageLocation'],
-        imageCaption: json['imageCaption'],
+        cateName: json['cateName'],
       );
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class Category extends StatelessWidget {
               width: 80.0,
               alignment: Alignment.topCenter,
               child: Text(
-                imageCaption,
+                cateName,
                 style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
@@ -39,6 +39,60 @@ class Category extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class Categories extends StatefulWidget {
+  const Categories({Key? key}) : super(key: key);
+
+  @override
+  _CategoriesState createState() => _CategoriesState();
+}
+
+class _CategoriesState extends State<Categories> {
+  var categoryList = [
+    {
+      'imageLocation': 'images/cats/tshirt.png',
+      'cateName': 'Tshirt',
+    },
+    {
+      'imageLocation': 'images/cats/shoe.png',
+      'cateName': 'Shoes',
+    },
+    {
+      'imageLocation': 'images/cats/jeans.png',
+      'cateName': 'Pants',
+    },
+    {
+      'imageLocation': 'images/cats/informal.png',
+      'cateName': 'Informal',
+    },
+    {
+      'imageLocation': 'images/cats/formal.png',
+      'cateName': 'Formal',
+    },
+    {
+      'imageLocation': 'images/cats/dress.png',
+      'cateName': 'Dresses',
+    },
+    {
+      'imageLocation': 'images/cats/accessories.png',
+      'cateName': 'Accessories',
+    },
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return InkWell(
+          onTap: () {},
+          child: Category(
+            imageLocation: categoryList[index]['imageLocation']!,
+            cateName: categoryList[index]['Tshirt']!,
+          ),
+        );
+      },
     );
   }
 }

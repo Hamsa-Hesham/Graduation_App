@@ -120,13 +120,12 @@ class _SignupFormState extends State<SignupForm> {
               onPressed: () {
                 if (_signupFormKey.currentState!.validate()) {
                   setState(() {
+                    var name = (_userController.text).split(' ');
                     UserModel user = UserModel(
-                      name: _userController.text,
                       password: _passwordController.text,
-                      createdAt: DateTime.now(),
                       email: '',
-                      id: '',
-                      image: '',
+                      firstName: name[0],
+                      lastName: name[1],
                     );
 
                     createUser(user);

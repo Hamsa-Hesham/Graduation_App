@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Bars/appBar.dart';
 import 'package:graduation_app/Drawer/drawer.dart';
+import 'package:graduation_app/Homepage/home.dart';
 
 class Brand extends StatelessWidget {
   String? brandName;
@@ -25,7 +26,12 @@ class Brand extends StatelessWidget {
           ),
         ),
         onTap: () {
-          print("you clicked me");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+          );
         });
   }
 }

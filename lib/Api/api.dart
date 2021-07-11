@@ -85,11 +85,9 @@ Future<UserModel> updateUserData(int userID) async {
   if (response.statusCode == 200) {
     print(response.body);
     return UserModel(
-      createdAt: DateTime.now(),
+      firstName: '',
+      lastName: '',
       email: '',
-      id: '',
-      image: '',
-      name: '',
       password: '',
     );
   } else {
