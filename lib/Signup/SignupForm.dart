@@ -31,7 +31,7 @@ class _SignupFormState extends State<SignupForm> {
             _userController,
             'Username',
             validationFunction: (v) {
-              if (v.isValidUsername) {
+              if (v!.isValidUsername) {
                 return '';
               } else {
                 return 'Please enter a valid username.';
@@ -42,7 +42,7 @@ class _SignupFormState extends State<SignupForm> {
             _emailController,
             'Email Address',
             validationFunction: (v) {
-              if (v.isValidEmail) {
+              if (v!.isValidEmail) {
                 return '';
               } else {
                 return 'Please enter a valid email.';
@@ -53,7 +53,7 @@ class _SignupFormState extends State<SignupForm> {
             _passwordController,
             'Password',
             validationFunction: (v) {
-              if (v.isValidPassword) {
+              if (v!.isValidPassword) {
                 return '';
               } else {
                 return 'Please enter a valid password.';

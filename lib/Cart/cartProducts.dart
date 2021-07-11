@@ -19,7 +19,7 @@ class _CartProductsState extends State<CartProducts> {
       'productName': 'Pants',
       'productPicture': 'images/products/pants1.jpg',
       'productPrice': 110,
-      'productSize': 'Medium',
+      'productSize': 'M',
       'productColor': 'Grey',
       'productQuantity': 2,
     },
@@ -76,10 +76,10 @@ class _CartSingleProductState extends State<CartSingleProduct> {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        //contentPadding: const EdgeInsets.all(12.0),
+        contentPadding: const EdgeInsets.all(12.0),
         leading: Image.asset(
           widget.cartProductPicture,
-          width: 80.0,
+          width: 60.0,
           height: 100.0,
         ),
         title: Text(widget.cartProductName),
@@ -88,11 +88,11 @@ class _CartSingleProductState extends State<CartSingleProduct> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 4.0, 2.0),
                   child: Text('Size:'),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.only(right: 85),
                   child: Text(
                     widget.cartProductSize,
                     style: TextStyle(
@@ -100,20 +100,55 @@ class _CartSingleProductState extends State<CartSingleProduct> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 8.0, 8.0, 8.0),
-                  child: Text('Color:'),
+                Expanded(
+                  child: Row(
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            widget.cartProductQuantity++;
+                          });
+                        },
+                        icon: Icon(
+                          Icons.add,
+                          size: 15,
+                        ),
+                      ),
+                      Text("${widget.cartProductQuantity}"),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if (widget.cartProductQuantity != 0) {
+                              widget.cartProductQuantity--;
+                            }
+                          });
+                        },
+                        icon: Icon(
+                          Icons.remove,
+                          size: 15,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
+              ],
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 3.0, 4.0),
+                    child: Text('Color:'),
+                  ),
+                  Text(
                     widget.cartProductColor,
                     style: TextStyle(
                       color: Colors.red,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Container(
               alignment: Alignment.topLeft,
@@ -127,35 +162,6 @@ class _CartSingleProductState extends State<CartSingleProduct> {
               ),
             ),
           ],
-        ),
-//      ==================== A PROBLEM HERE =====================
-//      REMOVE SingleChildScrollView
-        trailing: Container(
-          width: 10,
-          child: SingleChildScrollView(
-            child: Row(
-              verticalDirection: VerticalDirection.down,
-              children: <Widget>[
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.cartProductQuantity++;
-                    });
-                  },
-                  icon: Icon(Icons.add),
-                ),
-                Text("${widget.cartProductQuantity}"),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.cartProductQuantity--;
-                    });
-                  },
-                  icon: Icon(Icons.remove),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

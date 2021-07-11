@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 class TextFIELD extends StatefulWidget {
   TextEditingController controller = TextEditingController();
   String name = '';
-  String Function(String?)? validationFunction;
+  String? Function(String?)? validationFunction;
 
   TextFIELD(
     TextEditingController controller,
     String name, {
-    required String Function(String) validationFunction,
+    String? Function(String?)? validationFunction,
   }) {
     this.controller = controller;
     this.name = name;
-    this.validationFunction = validationFunction as String Function(String? p1);
+    this.validationFunction;
   }
   @override
   _TextFIELDState createState() => _TextFIELDState();

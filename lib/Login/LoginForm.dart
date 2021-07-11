@@ -45,6 +45,12 @@ class _LoginFormState extends State<LoginForm> {
             ),
             child: Button(
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Brands(),
+                  ),
+                );
                 if (_loginFormKey.currentState!.validate()) {
                   var y = login(
                     username: _emailController.text,

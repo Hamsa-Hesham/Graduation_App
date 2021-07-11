@@ -83,16 +83,20 @@ class _CategoriesState extends State<Categories> {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return InkWell(
-          onTap: () {},
-          child: Category(
-            imageLocation: categoryList[index]['imageLocation']!,
-            cateName: categoryList[index]['Tshirt']!,
-          ),
-        );
-      },
+    return Container(
+      height: 50,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return InkWell(
+            onTap: () {},
+            child: Category(
+              imageLocation: categoryList[index]['imageLocation']!,
+              cateName: categoryList[index]['cateName']!,
+            ),
+          );
+        },
+      ),
     );
   }
 }

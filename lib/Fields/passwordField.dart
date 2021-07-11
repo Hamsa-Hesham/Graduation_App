@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 class PasswordFIELD extends StatefulWidget {
   TextEditingController controller = TextEditingController();
   String text = '';
-   String Function(String?)? validationFunction ;
+  String? Function(String?)? validationFunction;
 
   PasswordFIELD(
     TextEditingController controller,
     String text, {
-    required String Function(String) validationFunction,
+    required String? Function(String?)? validationFunction,
   }) {
     this.controller = controller;
     this.text = text;
-    this.validationFunction = validationFunction as String Function(String? p1);
+    this.validationFunction = validationFunction;
   }
 
   @override

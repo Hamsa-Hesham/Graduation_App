@@ -48,7 +48,7 @@ class _DatePICKERState extends State<DatePICKER> {
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 17,
+          fontSize: 12,
         ),
       ),
       color: Colors.amber[100]!.withOpacity(0.8),

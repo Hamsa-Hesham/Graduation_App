@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:graduation_app/Brands/brands.dart';
 import 'package:graduation_app/Login/LoginScreen.dart';
 import 'package:graduation_app/Redux/AppState.dart';
 import 'package:graduation_app/Redux/reducers.dart';
